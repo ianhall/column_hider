@@ -1,23 +1,19 @@
 $:.push File.expand_path("../lib", __FILE__)
-
-# Maintain your gem's version:
 require "column_hider/version"
 
-# Describe your gem and declare its dependencies:
-Gem::Specification.new do |s|
-  s.name        = "column_hider"
-  s.version     = ColumnHider::VERSION
-  s.authors     = ["Ian Hall"]
-  s.email       = ["ianh.99@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of ColumnHider."
-  s.description = "TODO: Description of ColumnHider."
-  s.license     = "MIT"
+Gem::Specification.new do |spec|
+  spec.name        = "column_hider"
+  spec.version     = ColumnHider::VERSION
+  spec.authors     = ["Flashfunders"]
+  spec.email       = ["engineering@flashfunders.com"]
+  spec.homepage    = ""
+  spec.summary     = "Removes a database table column from the set of columns known to your application."
+  spec.description = "Superclasses the 'columns' method of ActiveRecord's Attribute class and dynamically removes your chosen column(s)."
+  spec.license     = "MIT"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  spec.files = Dir["{lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  spec.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 4.2.0"
-
-  s.add_development_dependency "sqlite3"
+  spec.add_dependency "rails", ">= 4.2.0"
+  spec.add_development_dependency "sqlite3"
 end

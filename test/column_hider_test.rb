@@ -15,8 +15,8 @@ describe ColumnHider do
         t.string :capital
         t.string :comment
       end
-      extend ColumnHider::ActiveRecordAttributes
-      hidden_columns :capital
+      extend ColumnHider
+      column_hider_columns :capital
     end
   end
 
@@ -41,7 +41,7 @@ describe ColumnHider do
     let(:mock_col_arr) { %w(id name capital) }
     col_arr = []
     it '#shows the column is not there' do
-      Country.send :hidden_columns, :comment
+      Country.send :column_hider_columns, :comment
       Country.columns.each do |col|
         col_arr << col.name
       end
