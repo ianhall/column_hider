@@ -15,7 +15,7 @@ describe ColumnHider do
         t.string :capital
         t.string :comment
       end
-      extend ColumnHider
+      extend ColumnHider::ActiveRecordAttributes
       column_hider_columns :capital
     end
   end

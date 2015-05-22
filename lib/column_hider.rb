@@ -8,7 +8,7 @@ module ColumnHider
   # `  extend ColumnHider`
   # `  column_hider_columns :column_one, :column_two, ...`
   #
-
+  module ActiveRecordAttributes
     def column_hider_columns(*cols)
       @column_hider_columns = []
       cols.each do |col|
@@ -20,4 +20,6 @@ module ColumnHider
       @column_hider_columns ||= [] # just in case the model includes the line "  extend ColumnHider", but doesn't call column_hider_columns
       super.reject { |col| @column_hider_columns.include?(col.name) }
     end
+  end
+
 end
