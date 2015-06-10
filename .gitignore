@@ -1,3 +1,4 @@
+column_hider-*.gem
 vendor/
 .bundle/
 log/*.log
