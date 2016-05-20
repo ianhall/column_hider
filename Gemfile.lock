@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    column_hider (0.0.3)
+    column_hider (0.1.0)
       rails (~> 4.1)
 
 GEM
