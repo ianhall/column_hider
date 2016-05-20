@@ -39,12 +39,12 @@ The solution to this problem lies in overriding the `ActiveRecord` columns metho
 
   ```ruby  
     extend ColumnHider::ActiveRecordAttributes   
-    column_hider_columns :column_one
+    column_hider_deprecate_columns :column_one, :column_two, ...
   ```   
 
   where `:column_one` is the `CTBD`.
 
-  This logically deletes the column from the application - whenever the application accesses the model, the column will be removed from the list of columns that the application knows about.
+  This logically deletes the column from the application - whenever the application accesses the model, the column will be removed from the list of columns that the application knows about. Getter and setter methods are dynamically added, so that you'll receive NoMethodError errors if you try to use the `CTBD` anywhere in your application.   
 
   Then go through your application in the normal way and remove all other references to the `CTBD`.
 

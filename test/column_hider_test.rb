@@ -17,6 +17,7 @@ describe ColumnHider do
       end
       extend ColumnHider::ActiveRecordAttributes
       column_hider_columns :capital
+      column_hider_deprecate_columns :capital
     end
   end
 
@@ -37,9 +38,16 @@ describe ColumnHider do
       expect(col_arr).wont_include('capital')
     end
 
-    it '#raises an error if we reference a hidden column' do
-      assert_raises ActiveRecord::UnknownAttributeError do
+    it '#raises an error if we reference a hidden column via mass assignment' do
+      assert_raises NoMethodError do
         c = Country.new(name: 'USA', capital: 'Washington, DC', comment: 'America')
+      end
+    end
+
+    it '#raises an error if we reference a hidden column via individual assignment' do
+      assert_raises NoMethodError do
+        c = Country.new
+        c.capital = 'Edinburgh'
       end
     end
   end
