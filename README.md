@@ -1,5 +1,10 @@
 # ColumnHider
 
+## Now obsolete for Rails 5.
+See https://github.com/rails/rails/pull/21720 which introduces `ignored_columns`.
+Also, here's an excellent set of advice:
+https://github.com/ankane/strong_migrations
+
 ## Procedure for deleting or renaming database columns in Rails applications
 
 ### Avoiding downtime, or reliability issues during deploys
